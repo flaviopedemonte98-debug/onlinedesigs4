@@ -75,7 +75,7 @@ button {
 }
 
 .nav-item {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
 }
 
 .nav-link {
@@ -292,44 +292,90 @@ button {
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 /* ==================== RESPONSIVE DESIGN PARA MÓVILES (500px) ==================== */
+
+/* ==================== RESPONSIVE DESIGN PARA MÓVILES (500px) ==================== */
 @media (max-width: 500px) {
 
     /* --- ESTILOS GENERALES --- */
     body {
-        font-size: 14px; /* Reduce el tamaño de fuente base para mejor legibilidad */
+        font-size: 14px;
     }
 
-    /* --- HEADER --- */
+    /* --- HEADER (MODIFICADO) --- */
     .header-container {
-        flex-direction: column; /* Apila el logo y el menú de navegación */
-        padding: 1rem 1rem;
-    }
-
-    .nav {
-        display: none; /* Oculta el menú de navegación para simplificar el diseño */
+        flex-direction: row; /* Vuelve a poner el logo y el botón en fila */
+        justify-content: space-between; /* Alinea el logo a la izquierda y el botón a la derecha */
+        padding: 1rem;
     }
 
     .logo {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
+    }
+
+    /* --- MENU DE HAMBURGUESA --- */
+    .nav {
+        display: none; /* Ocultamos el menú por defecto */
+        position: absolute;
+        top: 60px; /* Debajo del header */
+        right: 0;
+        background-color: white;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-list {
+        flex-direction: column; /* Apila los enlaces uno encima del otro */
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+    }
+    
+    /* Mostrar el menú cuando el botón de hamburguesa se active (requiere JS) */
+    .nav.active {
+        display: block;
+    }
+    
+    /* --- BOTÓN DE HAMBURGUESA --- */
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-color);
     }
 
     /* --- HERO SECTION --- */
     .hero-section {
-        grid-template-columns: 1fr; /* Una sola columna para que el contenido se apile */
+        grid-template-columns: 1fr;
         padding: 6rem 1rem 2rem;
     }
 
     .hero-image-left {
-        min-height: 300px; /* Reduce la altura de la imagen en la sección de héroe */
+        min-height: 300px;
     }
 
     .hero-content {
-        align-items: center; /* Centra el texto y el botón */
+        align-items: center;
         text-align: center;
     }
 
     .hero-title {
-        font-size: 2rem; /* Reduce el tamaño del título */
+        font-size: 2rem;
     }
 
     /* --- ABOUT SECTION --- */
@@ -347,7 +393,7 @@ button {
     }
 
     .about-title {
-        font-size: 1.5rem; /* Reduce el tamaño del título */
+        font-size: 1.5rem;
     }
 
     /* --- SERVICES SECTION --- */
@@ -356,14 +402,14 @@ button {
     }
     
     .services-container {
-        flex-direction: column; /* Apila las tarjetas de servicio en una sola columna */
+        flex-direction: column;
         gap: 1.5rem;
         align-items: center;
     }
 
     .service-card {
-        width: 100%; /* Las tarjetas ocupan todo el ancho */
-        max-width: 350px; /* Limita el ancho para que no se vean muy grandes en pantallas pequeñas */
+        width: 100%;
+        max-width: 350px;
     }
     
     /* --- NEWSLETTER SECTION --- */
@@ -372,6 +418,6 @@ button {
     }
 
     .newsletter-title {
-        font-size: 1.5rem; /* Reduce el tamaño del título */
+        font-size: 1.5rem;
     }
 }
